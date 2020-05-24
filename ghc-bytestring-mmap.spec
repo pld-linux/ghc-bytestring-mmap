@@ -7,7 +7,7 @@ Summary:	mmap support for strict ByteStrings
 Summary(pl.UTF-8):	Obsługa mmap dla ścisłych ByteStringów
 Name:		ghc-%{pkgname}
 Version:	0.2.2
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/bytestring-mmap
@@ -123,20 +123,23 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE
 %{_libdir}/%{ghcdir}/package.conf.d/%{pkgname}.conf
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/HSbytestring-mmap-%{version}.o
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSbytestring-mmap-%{version}.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSbytestring-mmap-%{version}-*.so
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSbytestring-mmap-%{version}-*.a
+%exclude %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSbytestring-mmap-%{version}-*_p.a
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/include
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix/MMap.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix/MMap.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix/MMap
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix/MMap/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix/MMap/*.dyn_hi
 
 %if %{with prof}
 %files prof
 %defattr(644,root,root,755)
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSbytestring-mmap-%{version}_p.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSbytestring-mmap-%{version}-*_p.a
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix/MMap.p_hi
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/System/IO/Posix/MMap/*.p_hi
 %endif
