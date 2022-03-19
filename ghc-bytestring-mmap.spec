@@ -7,7 +7,7 @@ Summary:	mmap support for strict ByteStrings
 Summary(pl.UTF-8):	Obsługa mmap dla ścisłych ByteStringów
 Name:		ghc-%{pkgname}
 Version:	0.2.2
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/bytestring-mmap
